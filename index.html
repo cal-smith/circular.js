@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script type="text/javascript" src="domjax.js"></script>
+	</head>
+	<body>
+		<ul>
+			<h1>front page</h1>
+			<get id="front-page" url="http://api.reddit.com/" action="load" each="data.data.children" default="Click <button id='load'>Load</button> to load">
+				<li>
+					<a href="[[ data.url ]]">[[ data.title ]]</a><span>Author: [[data.author]]</span>
+				</li>
+			</get>
+			<h1>/r/pics</h1>
+			<get url="http://api.reddit.com/r/pics" args="test" each="data.data.children">
+				<li>
+					<span>Ups: [[data.ups ]] Downs: [[ data.downs]]</span><a href="[[ data.url ]]"> [[ data.title ]]</a>
+				</li>
+			</get>
+			<h1>Get raw</h1>
+			<get url="http://api.imgur.com/2/image/07MhM4Y/.json" raw="true"></get>
+		</ul>
+	</body>
+</html>
