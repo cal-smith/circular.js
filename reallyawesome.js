@@ -29,7 +29,7 @@ function templater(element){//templater. replaces template strings, or if no eac
 			var foreach = eval(byeach)//evals the root object to a "real" object (note add some eval safty)
 			var template = element.template;//gets out the template!
 			var commands = template.match(/\[\[[^]+?\]\]/ig);//matches template strings
-			var replace = []; //container for the template variables 
+			var replace = []; //container for the template variables
 			for(var i = 0; i < commands.length; i++){//
 				var command = commands[i].slice(2, -2);//removes the two brackets
 				command = command.trim();
@@ -105,7 +105,7 @@ var verb = {
 
 ajax = {//class for ajax interaction. as a bonus you can do basic requests via: ajax.send('VERB', url, function(var){ //etc });
 	//needs error handling, jsonp handling, non json request handling, progress handling, proper post handling
-	send: function(args, callback){// args takes array of: {verb, url, headers, json}
+	send: function(args, callback){// args takes object of: {verb, url, headers, json}
 		if (typeof args.json === "undefined"){
 			args.json = true;
 		}
