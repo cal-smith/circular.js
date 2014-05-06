@@ -2,12 +2,30 @@
 	 return str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
  };
 
+function search(json, find, callback){
+		for(var i in json){
+			//console.log([i,json[i]]);
+			if(i == "children"){
+				callback([i,json[i]]);
+			} else if(json[i] !== null && typeof(json[i]) == "object"){
+			search(json[i], find, callback);
+		}
+	}
+}
+
 //templater works exclusivly with json. all non json requests get passed to loader
 function templater(element){//templater. replaces template strings, or if no each attr exits, simply dumps the result into element.innerHTML
 	ajax.send({'verb':'GET', 'url':element.attributes.url.value}, function(data){
 		element.innerHTML = "";//clears any default values etc.
 		if(element.attributes.each){//check for each attr
 			var byeach = element.attributes.each.value;//gets the root object (the part we have to loop over, aka the array) as a string
+
+			search(data, "children", function(key){
+				window.test = key;
+				console.log(key);
+			});
+
+			/*
 			var foreach = eval(byeach)//evals the root object to a "real" object (note add some eval safty)
 			var template = element.template;//gets out the template!
 			var commands = template.match(/\[\[[^]+?\]\]/ig);//matches template strings
@@ -26,7 +44,7 @@ function templater(element){//templater. replaces template strings, or if no eac
 					result = result.replace(re, replacement);//replaces them while leaving the rest of the template untouched. laser guided string editing.
 				}
 				element.insertAdjacentHTML('beforeend', result);//adds each element via insertAdjacentHTML. should keep things quick and not trash the DOM.
-			}
+			}*/
 		} else{
 			element.innerHTML = JSON.stringify(data);//stringifys and dumps the data.
 		}
