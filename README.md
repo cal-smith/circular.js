@@ -5,9 +5,12 @@ A little AJAX and templating libary for working with JSON based API's via HTML t
 
 To use simply drop `<<get url="http(s)://url.com"></get>` where you want output. All configuration of the request is done through attributes. 
 
-`<get|post|put|delete></get|post|put|delete>` Avliable elements, one for each request type. By default these are automatically found onload and the request placed immedietly.  
-`url=` sets the request url  
-`action=#id event` id of an element to watch, and event to listen too, functions as a way to deffer loading. Whitespace is important, and `event` must come after `id`.	`id` can defined with or without the leading `#`. By default binds to element and listens for click.  
+`<get|post|put|delete></get|post|put|delete>` Avliable elements, one for each request type. By default these are automatically found onload and the request placed immedietly.
+
+`url=` sets the request url
+
+`action=#id event` id of an element to watch, and event to listen too, functions as a way to deffer loading. Whitespace is important, and `event` must come after `id`.	`id` can defined with or without the leading `#`. By default binds to element and listens for click.
+
 `default=` Default plaintext or HTML to place insied the element before content loads. Very usefull with `action=`.
 `raw=true|false` Weather or not to load the content of the request directly into the HTML, `raw="true"` will dump directly into the DOM, while `raw="false"` is the default and allows for transformations of the data before output.(note: swap this for `type="html|json|raw`?)  
 
