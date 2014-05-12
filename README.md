@@ -3,6 +3,7 @@ reallyawesome.js
 
 A little AJAX and templating libary for working with JSON based API's via HTML tags
 
+### Usage
 To use simply drop `<<get url="http(s)://url.com"></get>` where you want output. All configuration of the request is done through attributes. 
 
 `<get|post|put|delete></get|post|put|delete>` Avliable elements, one for each request type. By default these are automatically found onload and the request placed immedietly.
@@ -26,6 +27,8 @@ If we have a JSON object that looks like `data.data.children[data]` and each dat
 
 Anything between `[[ ]]` will be evaluated in the context of the original `each` array (in this case `children[]`). Currently RA.JS uses a custom templating "language", for maximum extensibility it is likely that we will switch to handlebars.js or a similar compliant library, which would allow for easy replacement of the templating library.
 
+### Notes
+
 Currently RA.JS supports
 * GET requests
 * Basic result templating
@@ -37,5 +40,7 @@ In the future RA.JS will support
 * Better result formatting
 * Much better templating support
 * Ability to pass results off to functions
+
+### Core
 
 RA.JS is also a nice AJAX library at its core. Currently providing basic abstraction from standard xhr requests. invocation as `ajax.send({args}, callback);` where {args} is an object of {verb, url, headers, json}. Verb and URL are required. If you just want a small AJAX library check out [element1.js](https://github.com/hansolo669/element1.js), it's the core of reallyawesome.
