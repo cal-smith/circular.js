@@ -3,6 +3,8 @@ reallyawesome.js
 
 A little AJAX and templating libary for working with JSON based API's via HTML tags
 
+[Little demo here](http://www.reallyawesomedomain.com/reallyawesome.js/demo.html)
+
 ### Usage
 To use simply drop `<<get url="http(s)://url.com"></get>` where you want output. All configuration of the request is done through attributes. 
 
