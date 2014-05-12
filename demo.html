@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<script type="text/javascript" src="reallyawesome.js"></script>
+		<script type="text/javascript" src="reallyawesome.min.js"></script>
 	</head>
 	<body>
 		<ul>
 			<h1>front page</h1>
-			<get id="front-page" url="http://api.reddit.com/" action="load" each="data.data.children" default="Click <button id='load'>Load</button> to load">
+			<get id="front-page" url="http://api.reddit.com/" action="load" default="Click <button id='load'>Load</button> to load">
+				{{#each data.children}}
 				<li>
-					<a href="[[ data.url ]]">[[ data.title ]]</a><span>Author: [[data.author]]</span>
+					<a href="{{ data.url }}">{{data.title }}</a><span>Author: {{data.author}}</span>
 				</li>
+				{{/each}}
 			</get>
 			<h1>/r/pics</h1>
-			<get url="http://api.reddit.com/r/pics" args="test" each="data.data.children">
+			<get url="http://api.reddit.com/r/pics">
+				{{#each data.children}}
 				<li>
-					<span>Ups: [[data.ups ]] Downs: [[ data.downs]]</span><a href="[[ data.url ]]"> [[ data.title ]]</a>
+					<span>Ups: {{data.ups}} Downs: {{data.downs}}</span><a href="{{data.url}}"> {{data.title}}</a>
 				</li>
+				{{/each}}
 			</get>
 			<h1>Get raw</h1>
-			<get url="http://api.imgur.com/2/image/07MhM4Y/.json" raw="true"></get>
+			<get url="http://api.imgur.com/2/image/07MhM4Y/.json" type="json"></get>
+			<get url="http://127.0.0.1:8000/frag.html" type="html"></get>
 		</ul>
 	</body>
 </html>
