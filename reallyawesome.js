@@ -103,6 +103,7 @@ var verb = {
 	}
 },
 
+/*&https://raw.githubusercontent.com/hansolo669/element1.js/master/element1.js*/
 ajax = {//class for ajax interaction. as a bonus you can do basic requests via: ajax.send('VERB', url, function(var){ //etc });
 	//needs error handling, jsonp handling, non json request handling, progress handling, proper post handling
 	send: function(args, callback){// args takes object of: {verb, url, headers, json}
