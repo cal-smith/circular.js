@@ -23,7 +23,21 @@
 			</get>
 			<h1>Get raw</h1>
 			<get url="http://api.imgur.com/2/image/07MhM4Y/.json" type="json"></get>
+			<h1>Get HTML</h1>
 			<get url="frag.html" type="html"></get>
+			<h1>Flat JSON object</h1>
+			<get url="frag.html" wrap="wrap">warp defines a variable the result should be wrapped in. this fixes the stupidity of flat json objects
+				{{#each wrap}}
+					<span>{{warp.data}}</span>
+				{{/each}}
+			</get>
+			<form id="form"><!--when action is defined for this form id, prevent default is applied, and the relevent <post> tags handles sending data-->
+				<input type="text">
+				<input type="submit">
+			</form>
+			<post url="url.to/post/to" action="form">
+				<!--optional response output?-->
+			</post>
 		</ul>
 	</body>
 </html>
