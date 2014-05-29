@@ -18,8 +18,10 @@ To use simply drop `<<get url="http(s)://url.com"></get>` where you want output.
 
 `type="html|json|raw"` Declares what type of response to expect. `html` is for loading HTML fragments, `raw` is for loading anything that isnt HTML or JSON, and `json` will spit raw JSON into the document.
 
+`wrap=` passes a string that will be used as a variable to wrap a flat JSON object. Ex: `wrap=json` a JSON document that looks like `{'day':'monday', 'rating':'1'},{'day':'friday', 'rating':'5'}` will be transformed to `{'json':[{'day':'monday', 'rating':'1'},{'day':'friday', 'rating':'5'}]}` which lets us preform `{{#each json}}` and template out the data.
+
 ### Templating
-reallyawesome uses handlebars.js as it's templating library. This allows us to take JSON formatted responses and insert them nicely into the document. As long as `type=""` is not defined the result data from the request will be passed to handlebars, which will process any HTML inside the request element as a handlebars template. If you have a JSON object that looks like `{"name":"Cal", "site":"reallyawesomedomain.com"}` you can output it as such: `<a href="{{site}}">{{name}}</a>`. A more complex example, with a JSON object like `{data.children[data.url, data.title]}` follows:
+reallyawesome uses handlebars.js as it's templating library. This allows us to take JSON formatted responses and insert them nicely into the document. As long as `type=""` is not defined the result data from the request will be passed to handlebars, which will process any HTML inside the request element as a handlebars template. If you have a JSON object that looks like `{"name":"Cal", "site":"reallyawesomedomain.com"}` you can output it as such: `<a href="{{site}}">{{name}}</a>`. A more complex example, with a JSON object like `'data':{'children':['data':{'url':'fancy.com', 'title':'fancy!'}]}` follows:
 
 ```html
 {{#each data.children}}

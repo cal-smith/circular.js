@@ -26,7 +26,7 @@
 			<h1>Get HTML</h1>
 			<get url="frag.html" type="html"></get>
 			<h1>Flat JSON object</h1>
-			<get url="frag.html" wrap="wrap">warp defines a variable the result should be wrapped in. this fixes the stupidity of flat json objects
+			<get url="flat.json" wrap="wrap"><!--warp defines a variable the result should be wrapped in. this fixes the stupidity of flat json objects-->
 				{{#each wrap}}
 					<span>{{warp.data}}</span>
 				{{/each}}
