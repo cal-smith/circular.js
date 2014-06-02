@@ -2,6 +2,10 @@
 <html>
 	<head>
 		<script type="text/javascript" src="build/reallyawesome.min.js"></script>
+		<!--<script type="text/javascript" src="lib/handlebars.js"></script>
+		<script type="text/javascript" src="lib/element1.js"></script>
+		<script type="text/javascript" src="lib/reallyawesome.js"></script>-->
+		<script type="text/javascript">ra.init();</script>
 	</head>
 	<body>
 		<ul>
@@ -26,9 +30,10 @@
 			<h1>Get HTML</h1>
 			<get url="frag.html" type="html"></get>
 			<h1>Flat JSON object</h1>
-			<get url="flat.json" wrap="wrap"><!--warp defines a variable the result should be wrapped in. this fixes the stupidity of flat json objects-->
+			<p>We get around the limitaions of a flat JSON object by defining the <code>wrap</code> attribute.</p>
+			<get url="https://api.github.com/users/hansolo669/repos" wrap="wrap"><!--warp defines a variable the result should be wrapped in. this fixes the stupidity of flat json objects-->
 				{{#each wrap}}
-					<span>{{warp.data}}</span>
+					<li><span>{{full_name}}</span></li>
 				{{/each}}
 			</get>
 			<h1>Post form

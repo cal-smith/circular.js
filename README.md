@@ -47,4 +47,4 @@ In the future RA.js will support
 
 ### Core
 
-RA.js is also a nice AJAX library at its core. Currently providing basic abstraction from standard xhr requests. invocation as `ajax.send({args}, callback);` where {args} is an object of {verb, url, headers, json}. Verb and URL are required. If you just want a small AJAX library check out [element1.js](https://github.com/hansolo669/element1.js), it's the core of reallyawesome.
+RA.js uses [element1.js](https://github.com/hansolo669/element1.js) for AJAX requests. Basic usage is: `ajax.send({args}, callback);` where `{args}` is an object of `{verb, url, headers, json}`. Verb and URL are required. More detail on its project page.
